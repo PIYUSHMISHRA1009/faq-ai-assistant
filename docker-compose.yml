@@ -1,0 +1,12 @@
+# docker-compose.yml
+version: "3.9"
+
+services:
+  faqbot:
+    build: .
+    container_name: faqbot-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    restart: unless-stopped

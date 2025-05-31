@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQBot – Chat</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #343541;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+    #chat-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .message {
+      margin: 0.5rem 0;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      max-width: 75%;
+      line-height: 1.4;
+    }
+    .user {
+      align-self: flex-end;
+      background-color: #d1e7dd;
+      color: #0f5132;
+    }
+    .bot {
+      align-self: flex-start;
+      background-color: #e2e3e5;
+      color: #333;
+    }
+    #input-container {
+      display: flex;
+      padding: 1rem;
+      background: white;
+      border-top: 1px solid #ccc;
+    }
+    #questionInput {
+      flex: 1;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-right: 0.5rem;
+    }
+    button {
+      padding: 0.7rem 1.2rem;
+      background: #19c37d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <header>🤖 FAQBot Chat</header>
+
+  <div id="chat-container"></div>
+
+  <div id="input-container">
+    <input type="text" id="questionInput" placeholder="Ask something..." />
+    <button onclick="askQuestion()" id="sendBtn">Send</button>
+  </div>
+
+  <script>
+    const chat = document.getElementById('chat-container');
+    const input = document.getElementById('questionInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    function addMessage(text, sender) {
+      const div = document.createElement('div');
+      div.className = `message ${sender}`;
+      div.innerText = text;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    async function askQuestion() {
+      const question = input.value.trim();
+      if (!question) return;
+
+      addMessage(question, 'user');
+      input.value = '';
+      sendBtn.disabled = true;
+      addMessage('Thinking...', 'bot');
+
+      try {
+        // Use relative URL here
+        const res = await fetch('/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question }),
+        });
+        if (!res.ok) throw new Error(`API error: ${res.status}`);
+        const data = await res.json();
+
+        // Replace "Thinking..." with actual answer
+        const botMsg = chat.querySelector('.message.bot:last-child');
+        botMsg.innerText = data.answer;
+      } catch (err) {
+        const botMsg = chat.querySelector('.message.bot:last-child');
+        botMsg.innerText = '⚠️ Error contacting API.';
+        console.error(err);
+      } finally {
+        sendBtn.disabled = false;
+      }
+    }
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') askQuestion();
+    });
+  </script>
+
+</body>
+</html>

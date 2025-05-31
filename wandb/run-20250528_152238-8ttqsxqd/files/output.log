@@ -1,0 +1,211 @@
+  0%|                                                                                                             | 0/1770 [00:00<?, ?it/s]/Users/piyushkumarmishra/llm-finetune-faqbot/.venv/lib/python3.9/site-packages/torch/utils/data/dataloader.py:683: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+                                                                                                                                           
+{'loss': 37.1151, 'grad_norm': 5.252384662628174, 'learning_rate': 0.0002983050847457627, 'epoch': 0.03}
+{'loss': 36.459, 'grad_norm': 8.238422393798828, 'learning_rate': 0.0002966101694915254, 'epoch': 0.06}
+{'loss': 32.8663, 'grad_norm': 9.278294563293457, 'learning_rate': 0.0002949152542372881, 'epoch': 0.08}
+{'loss': 29.5671, 'grad_norm': 12.658066749572754, 'learning_rate': 0.0002932203389830508, 'epoch': 0.11}
+{'loss': 25.2376, 'grad_norm': 12.929815292358398, 'learning_rate': 0.00029152542372881354, 'epoch': 0.14}
+{'loss': 20.8151, 'grad_norm': 13.199378967285156, 'learning_rate': 0.00028983050847457623, 'epoch': 0.17}
+{'loss': 17.2053, 'grad_norm': 13.793286323547363, 'learning_rate': 0.00028813559322033897, 'epoch': 0.2}
+{'loss': 12.5658, 'grad_norm': 6.928106784820557, 'learning_rate': 0.00028644067796610166, 'epoch': 0.23}
+{'loss': 9.1692, 'grad_norm': 4.844871520996094, 'learning_rate': 0.0002847457627118644, 'epoch': 0.25}
+{'loss': 7.2757, 'grad_norm': 3.178687572479248, 'learning_rate': 0.0002830508474576271, 'epoch': 0.28}
+{'loss': 6.1301, 'grad_norm': 2.3090405464172363, 'learning_rate': 0.0002813559322033898, 'epoch': 0.31}
+{'loss': 5.4595, 'grad_norm': 1.430036187171936, 'learning_rate': 0.0002796610169491525, 'epoch': 0.34}
+{'loss': 5.1118, 'grad_norm': 1.0977134704589844, 'learning_rate': 0.0002779661016949152, 'epoch': 0.37}
+{'loss': 4.96, 'grad_norm': 0.6476609110832214, 'learning_rate': 0.0002762711864406779, 'epoch': 0.4}
+{'loss': 4.8312, 'grad_norm': 0.5462108254432678, 'learning_rate': 0.00027457627118644066, 'epoch': 0.42}
+{'loss': 4.701, 'grad_norm': 1.8864810466766357, 'learning_rate': 0.00027288135593220335, 'epoch': 0.45}
+{'loss': 4.6295, 'grad_norm': 0.5768677592277527, 'learning_rate': 0.0002711864406779661, 'epoch': 0.48}
+{'loss': 4.5733, 'grad_norm': 0.8503156900405884, 'learning_rate': 0.0002694915254237288, 'epoch': 0.51}
+{'loss': 4.4926, 'grad_norm': 1.3968740701675415, 'learning_rate': 0.0002677966101694915, 'epoch': 0.54}
+{'loss': 4.51, 'grad_norm': 0.7534948587417603, 'learning_rate': 0.0002661016949152542, 'epoch': 0.56}
+{'loss': 4.396, 'grad_norm': 0.5959929823875427, 'learning_rate': 0.0002644067796610169, 'epoch': 0.59}
+{'loss': 4.3664, 'grad_norm': 0.42121484875679016, 'learning_rate': 0.00026271186440677966, 'epoch': 0.62}
+{'loss': 4.2664, 'grad_norm': 1.0875219106674194, 'learning_rate': 0.00026101694915254235, 'epoch': 0.65}
+{'loss': 4.217, 'grad_norm': 1.085324764251709, 'learning_rate': 0.0002593220338983051, 'epoch': 0.68}
+{'loss': 4.1699, 'grad_norm': 0.6597585678100586, 'learning_rate': 0.0002576271186440678, 'epoch': 0.71}
+{'loss': 4.1019, 'grad_norm': 1.3789409399032593, 'learning_rate': 0.0002559322033898305, 'epoch': 0.73}
+{'loss': 4.0841, 'grad_norm': 0.8033812046051025, 'learning_rate': 0.00025423728813559317, 'epoch': 0.76}
+{'loss': 4.0104, 'grad_norm': 0.4741169810295105, 'learning_rate': 0.0002525423728813559, 'epoch': 0.79}
+{'loss': 3.9227, 'grad_norm': 0.7542945146560669, 'learning_rate': 0.0002508474576271186, 'epoch': 0.82}
+{'loss': 3.9048, 'grad_norm': 0.9498047232627869, 'learning_rate': 0.00024915254237288135, 'epoch': 0.85}
+{'loss': 3.8545, 'grad_norm': 0.536142885684967, 'learning_rate': 0.00024745762711864404, 'epoch': 0.88}
+{'loss': 3.813, 'grad_norm': 0.4573809802532196, 'learning_rate': 0.00024576271186440673, 'epoch': 0.9}
+{'loss': 3.7824, 'grad_norm': 0.5266358852386475, 'learning_rate': 0.00024406779661016948, 'epoch': 0.93}
+{'loss': 3.7081, 'grad_norm': 0.6014546751976013, 'learning_rate': 0.00024237288135593217, 'epoch': 0.96}
+{'loss': 3.6661, 'grad_norm': 0.5433341860771179, 'learning_rate': 0.0002406779661016949, 'epoch': 0.99}
+  warnings.warn(                                                                                                                           
+{'eval_loss': 3.3140079975128174, 'eval_runtime': 3.4071, 'eval_samples_per_second': 46.374, 'eval_steps_per_second': 5.87, 'epoch': 1.0}
+/Users/piyushkumarmishra/llm-finetune-faqbot/.venv/lib/python3.9/site-packages/torch/utils/data/dataloader.py:683: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+                                                                                                                                           
+{'loss': 3.6396, 'grad_norm': 0.7951734066009521, 'learning_rate': 0.0002389830508474576, 'epoch': 1.02}
+{'loss': 3.57, 'grad_norm': 0.4128032326698303, 'learning_rate': 0.00023728813559322032, 'epoch': 1.05}
+{'loss': 3.5405, 'grad_norm': 0.6843875050544739, 'learning_rate': 0.000235593220338983, 'epoch': 1.07}
+{'loss': 3.5058, 'grad_norm': 0.760464608669281, 'learning_rate': 0.00023389830508474576, 'epoch': 1.1}
+{'loss': 3.5095, 'grad_norm': 1.0015406608581543, 'learning_rate': 0.00023220338983050845, 'epoch': 1.13}
+{'loss': 3.4435, 'grad_norm': 0.7454259395599365, 'learning_rate': 0.00023050847457627117, 'epoch': 1.16}
+{'loss': 3.398, 'grad_norm': 0.46785953640937805, 'learning_rate': 0.00022881355932203386, 'epoch': 1.19}
+{'loss': 3.3736, 'grad_norm': 0.6998538970947266, 'learning_rate': 0.0002271186440677966, 'epoch': 1.21}
+{'loss': 3.3276, 'grad_norm': 0.8933693170547485, 'learning_rate': 0.0002254237288135593, 'epoch': 1.24}
+{'loss': 3.3377, 'grad_norm': 1.2858662605285645, 'learning_rate': 0.000223728813559322, 'epoch': 1.27}
+{'loss': 3.2955, 'grad_norm': 0.6595911383628845, 'learning_rate': 0.0002220338983050847, 'epoch': 1.3}
+{'loss': 3.2669, 'grad_norm': 0.9504184126853943, 'learning_rate': 0.00022033898305084745, 'epoch': 1.33}
+{'loss': 3.2285, 'grad_norm': 0.7344087362289429, 'learning_rate': 0.00021864406779661014, 'epoch': 1.36}
+{'loss': 3.1852, 'grad_norm': 1.8066155910491943, 'learning_rate': 0.00021694915254237286, 'epoch': 1.38}
+{'loss': 3.1784, 'grad_norm': 0.6233645677566528, 'learning_rate': 0.0002152542372881356, 'epoch': 1.41}
+{'loss': 3.1767, 'grad_norm': 0.6664929986000061, 'learning_rate': 0.0002135593220338983, 'epoch': 1.44}
+{'loss': 3.1556, 'grad_norm': 1.1467286348342896, 'learning_rate': 0.000211864406779661, 'epoch': 1.47}
+{'loss': 3.1026, 'grad_norm': 0.778649628162384, 'learning_rate': 0.0002101694915254237, 'epoch': 1.5}
+{'loss': 3.0954, 'grad_norm': 1.1264822483062744, 'learning_rate': 0.00020847457627118642, 'epoch': 1.53}
+{'loss': 3.0694, 'grad_norm': 0.6038978099822998, 'learning_rate': 0.00020677966101694914, 'epoch': 1.55}
+{'loss': 3.0667, 'grad_norm': 1.0523185729980469, 'learning_rate': 0.00020508474576271186, 'epoch': 1.58}
+{'loss': 3.04, 'grad_norm': 0.528774082660675, 'learning_rate': 0.00020338983050847455, 'epoch': 1.61}
+{'loss': 3.0412, 'grad_norm': 0.5182985663414001, 'learning_rate': 0.00020169491525423726, 'epoch': 1.64}
+{'loss': 3.0, 'grad_norm': 0.9002658724784851, 'learning_rate': 0.00019999999999999998, 'epoch': 1.67}
+{'loss': 3.009, 'grad_norm': 0.7113351821899414, 'learning_rate': 0.0001983050847457627, 'epoch': 1.69}
+{'loss': 2.9667, 'grad_norm': 0.4831155240535736, 'learning_rate': 0.0001966101694915254, 'epoch': 1.72}
+{'loss': 2.9649, 'grad_norm': 0.6670985817909241, 'learning_rate': 0.0001949152542372881, 'epoch': 1.75}
+{'loss': 2.9109, 'grad_norm': 0.38803631067276, 'learning_rate': 0.00019322033898305083, 'epoch': 1.78}
+{'loss': 2.9244, 'grad_norm': 0.4442163109779358, 'learning_rate': 0.00019152542372881355, 'epoch': 1.81}
+{'loss': 2.9012, 'grad_norm': 0.6579781174659729, 'learning_rate': 0.00018983050847457626, 'epoch': 1.84}
+{'loss': 2.8812, 'grad_norm': 0.4229765832424164, 'learning_rate': 0.00018813559322033895, 'epoch': 1.86}
+{'loss': 2.8561, 'grad_norm': 0.5211005806922913, 'learning_rate': 0.0001864406779661017, 'epoch': 1.89}
+{'loss': 2.8328, 'grad_norm': 0.6332802772521973, 'learning_rate': 0.0001847457627118644, 'epoch': 1.92}
+{'loss': 2.8169, 'grad_norm': 0.45701438188552856, 'learning_rate': 0.0001830508474576271, 'epoch': 1.95}
+{'loss': 2.8195, 'grad_norm': 0.7306556105613708, 'learning_rate': 0.0001813559322033898, 'epoch': 1.98}
+  warnings.warn(                                                                                                                           
+{'eval_loss': 2.4378743171691895, 'eval_runtime': 2.8143, 'eval_samples_per_second': 56.143, 'eval_steps_per_second': 7.107, 'epoch': 2.0}
+/Users/piyushkumarmishra/llm-finetune-faqbot/.venv/lib/python3.9/site-packages/torch/utils/data/dataloader.py:683: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+                                                                                                                                           
+{'loss': 2.7992, 'grad_norm': 0.38248535990715027, 'learning_rate': 0.00017966101694915254, 'epoch': 2.01}
+{'loss': 2.787, 'grad_norm': 0.4835660755634308, 'learning_rate': 0.00017796610169491523, 'epoch': 2.03}
+{'loss': 2.7851, 'grad_norm': 0.6349239945411682, 'learning_rate': 0.00017627118644067795, 'epoch': 2.06}
+{'loss': 2.7552, 'grad_norm': 0.4223255515098572, 'learning_rate': 0.00017457627118644064, 'epoch': 2.09}
+{'loss': 2.771, 'grad_norm': 0.6980222463607788, 'learning_rate': 0.0001728813559322034, 'epoch': 2.12}
+{'loss': 2.7448, 'grad_norm': 0.47889989614486694, 'learning_rate': 0.00017118644067796608, 'epoch': 2.15}
+{'loss': 2.7163, 'grad_norm': 1.0776643753051758, 'learning_rate': 0.0001694915254237288, 'epoch': 2.18}
+{'loss': 2.7207, 'grad_norm': 0.4054163694381714, 'learning_rate': 0.0001677966101694915, 'epoch': 2.2}
+{'loss': 2.7168, 'grad_norm': 0.5048443078994751, 'learning_rate': 0.00016610169491525423, 'epoch': 2.23}
+{'loss': 2.6894, 'grad_norm': 0.593882143497467, 'learning_rate': 0.00016440677966101692, 'epoch': 2.26}
+{'loss': 2.6856, 'grad_norm': 0.6021826863288879, 'learning_rate': 0.00016271186440677964, 'epoch': 2.29}
+{'loss': 2.6685, 'grad_norm': 0.39198189973831177, 'learning_rate': 0.00016101694915254236, 'epoch': 2.32}
+{'loss': 2.6576, 'grad_norm': 0.42313674092292786, 'learning_rate': 0.00015932203389830508, 'epoch': 2.34}
+{'loss': 2.6291, 'grad_norm': 0.5594825148582458, 'learning_rate': 0.0001576271186440678, 'epoch': 2.37}
+{'loss': 2.6413, 'grad_norm': 0.7903642654418945, 'learning_rate': 0.0001559322033898305, 'epoch': 2.4}
+{'loss': 2.6369, 'grad_norm': 0.5314188003540039, 'learning_rate': 0.0001542372881355932, 'epoch': 2.43}
+{'loss': 2.6034, 'grad_norm': 0.5441863536834717, 'learning_rate': 0.00015254237288135592, 'epoch': 2.46}
+{'loss': 2.595, 'grad_norm': 0.4087159037590027, 'learning_rate': 0.00015084745762711864, 'epoch': 2.49}
+{'loss': 2.5968, 'grad_norm': 0.6579955816268921, 'learning_rate': 0.00014915254237288136, 'epoch': 2.51}
+{'loss': 2.5944, 'grad_norm': 0.4710807800292969, 'learning_rate': 0.00014745762711864405, 'epoch': 2.54}
+{'loss': 2.5661, 'grad_norm': 0.42108267545700073, 'learning_rate': 0.00014576271186440677, 'epoch': 2.57}
+{'loss': 2.5815, 'grad_norm': 0.69405597448349, 'learning_rate': 0.00014406779661016949, 'epoch': 2.6}
+{'loss': 2.583, 'grad_norm': 0.5701034069061279, 'learning_rate': 0.0001423728813559322, 'epoch': 2.63}
+{'loss': 2.5398, 'grad_norm': 0.5576587319374084, 'learning_rate': 0.0001406779661016949, 'epoch': 2.66}
+{'loss': 2.5447, 'grad_norm': 0.5731820464134216, 'learning_rate': 0.0001389830508474576, 'epoch': 2.68}
+{'loss': 2.5124, 'grad_norm': 1.313262701034546, 'learning_rate': 0.00013728813559322033, 'epoch': 2.71}
+{'loss': 2.5288, 'grad_norm': 0.42655766010284424, 'learning_rate': 0.00013559322033898305, 'epoch': 2.74}
+{'loss': 2.512, 'grad_norm': 0.597037672996521, 'learning_rate': 0.00013389830508474574, 'epoch': 2.77}
+{'loss': 2.526, 'grad_norm': 0.5505886673927307, 'learning_rate': 0.00013220338983050846, 'epoch': 2.8}
+{'loss': 2.5066, 'grad_norm': 0.46807342767715454, 'learning_rate': 0.00013050847457627118, 'epoch': 2.82}
+{'loss': 2.5094, 'grad_norm': 0.5137595534324646, 'learning_rate': 0.0001288135593220339, 'epoch': 2.85}
+{'loss': 2.5012, 'grad_norm': 0.5654589533805847, 'learning_rate': 0.00012711864406779658, 'epoch': 2.88}
+{'loss': 2.512, 'grad_norm': 1.173158884048462, 'learning_rate': 0.0001254237288135593, 'epoch': 2.91}
+{'loss': 2.4823, 'grad_norm': 0.650124728679657, 'learning_rate': 0.00012372881355932202, 'epoch': 2.94}
+{'loss': 2.4716, 'grad_norm': 0.4702836275100708, 'learning_rate': 0.00012203389830508474, 'epoch': 2.97}
+{'loss': 2.4922, 'grad_norm': 0.45673322677612305, 'learning_rate': 0.00012033898305084746, 'epoch': 2.99}
+  warnings.warn(                                                                                                                           
+{'eval_loss': 2.144573926925659, 'eval_runtime': 4.3233, 'eval_samples_per_second': 36.546, 'eval_steps_per_second': 4.626, 'epoch': 3.0}
+/Users/piyushkumarmishra/llm-finetune-faqbot/.venv/lib/python3.9/site-packages/torch/utils/data/dataloader.py:683: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+                                                                                                                                           
+{'loss': 2.4782, 'grad_norm': 0.4315430223941803, 'learning_rate': 0.00011864406779661016, 'epoch': 3.02}
+{'loss': 2.4331, 'grad_norm': 0.6333779096603394, 'learning_rate': 0.00011694915254237288, 'epoch': 3.05}
+{'loss': 2.4672, 'grad_norm': 1.0980955362319946, 'learning_rate': 0.00011525423728813558, 'epoch': 3.08}
+{'loss': 2.445, 'grad_norm': 0.5606276988983154, 'learning_rate': 0.0001135593220338983, 'epoch': 3.11}
+{'loss': 2.4428, 'grad_norm': 0.45234301686286926, 'learning_rate': 0.000111864406779661, 'epoch': 3.14}
+{'loss': 2.4418, 'grad_norm': 1.2878749370574951, 'learning_rate': 0.00011016949152542372, 'epoch': 3.16}
+{'loss': 2.4281, 'grad_norm': 0.8300634622573853, 'learning_rate': 0.00010847457627118643, 'epoch': 3.19}
+{'loss': 2.4437, 'grad_norm': 0.4775630831718445, 'learning_rate': 0.00010677966101694915, 'epoch': 3.22}
+{'loss': 2.4361, 'grad_norm': 7.0315842628479, 'learning_rate': 0.00010508474576271185, 'epoch': 3.25}
+{'loss': 2.4437, 'grad_norm': 0.39688771963119507, 'learning_rate': 0.00010338983050847457, 'epoch': 3.28}
+{'loss': 2.4057, 'grad_norm': 0.558150053024292, 'learning_rate': 0.00010169491525423727, 'epoch': 3.31}
+{'loss': 2.3996, 'grad_norm': 0.6284918785095215, 'learning_rate': 9.999999999999999e-05, 'epoch': 3.33}
+{'loss': 2.4183, 'grad_norm': 0.4095931351184845, 'learning_rate': 9.83050847457627e-05, 'epoch': 3.36}
+{'loss': 2.4007, 'grad_norm': 0.5054166316986084, 'learning_rate': 9.661016949152541e-05, 'epoch': 3.39}
+{'loss': 2.4098, 'grad_norm': 0.41780886054039, 'learning_rate': 9.491525423728813e-05, 'epoch': 3.42}
+{'loss': 2.4147, 'grad_norm': 0.5277387499809265, 'learning_rate': 9.322033898305085e-05, 'epoch': 3.45}
+{'loss': 2.4132, 'grad_norm': 0.4071562886238098, 'learning_rate': 9.152542372881355e-05, 'epoch': 3.47}
+{'loss': 2.4059, 'grad_norm': 0.6634321212768555, 'learning_rate': 8.983050847457627e-05, 'epoch': 3.5}
+{'loss': 2.3824, 'grad_norm': 0.5078675150871277, 'learning_rate': 8.813559322033898e-05, 'epoch': 3.53}
+{'loss': 2.3974, 'grad_norm': 0.7078668475151062, 'learning_rate': 8.64406779661017e-05, 'epoch': 3.56}
+{'loss': 2.3722, 'grad_norm': 0.9422388672828674, 'learning_rate': 8.47457627118644e-05, 'epoch': 3.59}
+{'loss': 2.3824, 'grad_norm': 0.6621919870376587, 'learning_rate': 8.305084745762712e-05, 'epoch': 3.62}
+{'loss': 2.3832, 'grad_norm': 0.4137020409107208, 'learning_rate': 8.135593220338982e-05, 'epoch': 3.64}
+{'loss': 2.3895, 'grad_norm': 0.6088087558746338, 'learning_rate': 7.966101694915254e-05, 'epoch': 3.67}
+{'loss': 2.3735, 'grad_norm': 0.7022292017936707, 'learning_rate': 7.796610169491524e-05, 'epoch': 3.7}
+{'loss': 2.3795, 'grad_norm': 0.658947765827179, 'learning_rate': 7.627118644067796e-05, 'epoch': 3.73}
+{'loss': 2.3594, 'grad_norm': 0.5046433210372925, 'learning_rate': 7.457627118644068e-05, 'epoch': 3.76}
+{'loss': 2.3569, 'grad_norm': 0.46375057101249695, 'learning_rate': 7.288135593220338e-05, 'epoch': 3.79}
+{'loss': 2.3649, 'grad_norm': 0.5134032964706421, 'learning_rate': 7.11864406779661e-05, 'epoch': 3.81}
+{'loss': 2.3815, 'grad_norm': 0.9322676062583923, 'learning_rate': 6.94915254237288e-05, 'epoch': 3.84}
+{'loss': 2.343, 'grad_norm': 0.4810541868209839, 'learning_rate': 6.779661016949152e-05, 'epoch': 3.87}
+{'loss': 2.3626, 'grad_norm': 0.4870797097682953, 'learning_rate': 6.610169491525423e-05, 'epoch': 3.9}
+{'loss': 2.3678, 'grad_norm': 0.9649204015731812, 'learning_rate': 6.440677966101695e-05, 'epoch': 3.93}
+{'loss': 2.3675, 'grad_norm': 0.4418037533760071, 'learning_rate': 6.271186440677965e-05, 'epoch': 3.95}
+{'loss': 2.3497, 'grad_norm': 0.4197998344898224, 'learning_rate': 6.101694915254237e-05, 'epoch': 3.98}
+  warnings.warn(                                                                                                                           
+{'eval_loss': 2.032686948776245, 'eval_runtime': 3.7602, 'eval_samples_per_second': 42.019, 'eval_steps_per_second': 5.319, 'epoch': 4.0}
+/Users/piyushkumarmishra/llm-finetune-faqbot/.venv/lib/python3.9/site-packages/torch/utils/data/dataloader.py:683: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+                                                                                                                                           
+{'loss': 2.3235, 'grad_norm': 0.3874318301677704, 'learning_rate': 5.932203389830508e-05, 'epoch': 4.01}
+{'loss': 2.3407, 'grad_norm': 0.5977263450622559, 'learning_rate': 5.762711864406779e-05, 'epoch': 4.04}
+{'loss': 2.3634, 'grad_norm': 0.7319907546043396, 'learning_rate': 5.59322033898305e-05, 'epoch': 4.07}
+{'loss': 2.3499, 'grad_norm': 0.5098735690116882, 'learning_rate': 5.4237288135593214e-05, 'epoch': 4.1}
+{'loss': 2.34, 'grad_norm': 0.44686615467071533, 'learning_rate': 5.2542372881355925e-05, 'epoch': 4.12}
+{'loss': 2.3586, 'grad_norm': 1.1975593566894531, 'learning_rate': 5.084745762711864e-05, 'epoch': 4.15}
+{'loss': 2.3451, 'grad_norm': 0.6736564040184021, 'learning_rate': 4.915254237288135e-05, 'epoch': 4.18}
+{'loss': 2.3466, 'grad_norm': 0.4652842879295349, 'learning_rate': 4.7457627118644066e-05, 'epoch': 4.21}
+{'loss': 2.3448, 'grad_norm': 0.5197222232818604, 'learning_rate': 4.576271186440678e-05, 'epoch': 4.24}
+{'loss': 2.3426, 'grad_norm': 0.5865486264228821, 'learning_rate': 4.406779661016949e-05, 'epoch': 4.27}
+{'loss': 2.3146, 'grad_norm': 0.5967589616775513, 'learning_rate': 4.23728813559322e-05, 'epoch': 4.29}
+{'loss': 2.3223, 'grad_norm': 0.5107579827308655, 'learning_rate': 4.067796610169491e-05, 'epoch': 4.32}
+{'loss': 2.3248, 'grad_norm': 0.9018716812133789, 'learning_rate': 3.898305084745762e-05, 'epoch': 4.35}
+{'loss': 2.3254, 'grad_norm': 0.45302024483680725, 'learning_rate': 3.728813559322034e-05, 'epoch': 4.38}
+{'loss': 2.3225, 'grad_norm': 0.4535694122314453, 'learning_rate': 3.559322033898305e-05, 'epoch': 4.41}
+{'loss': 2.322, 'grad_norm': 0.40975335240364075, 'learning_rate': 3.389830508474576e-05, 'epoch': 4.44}
+{'loss': 2.33, 'grad_norm': 0.6400882005691528, 'learning_rate': 3.2203389830508473e-05, 'epoch': 4.46}
+{'loss': 2.326, 'grad_norm': 0.5437280535697937, 'learning_rate': 3.0508474576271185e-05, 'epoch': 4.49}
+{'loss': 2.3323, 'grad_norm': 0.5797245502471924, 'learning_rate': 2.8813559322033896e-05, 'epoch': 4.52}
+{'loss': 2.3452, 'grad_norm': 0.6592084169387817, 'learning_rate': 2.7118644067796607e-05, 'epoch': 4.55}
+{'loss': 2.3207, 'grad_norm': 0.508659303188324, 'learning_rate': 2.542372881355932e-05, 'epoch': 4.58}
+{'loss': 2.3267, 'grad_norm': 0.5005041360855103, 'learning_rate': 2.3728813559322033e-05, 'epoch': 4.6}
+{'loss': 2.3284, 'grad_norm': 0.4665490686893463, 'learning_rate': 2.2033898305084744e-05, 'epoch': 4.63}
+{'loss': 2.3124, 'grad_norm': 1.0194227695465088, 'learning_rate': 2.0338983050847455e-05, 'epoch': 4.66}
+{'loss': 2.319, 'grad_norm': 0.5617536902427673, 'learning_rate': 1.864406779661017e-05, 'epoch': 4.69}
+{'loss': 2.3194, 'grad_norm': 0.521785318851471, 'learning_rate': 1.694915254237288e-05, 'epoch': 4.72}
+{'loss': 2.3078, 'grad_norm': 0.9016193151473999, 'learning_rate': 1.5254237288135592e-05, 'epoch': 4.75}
+{'loss': 2.3091, 'grad_norm': 0.4172704815864563, 'learning_rate': 1.3559322033898304e-05, 'epoch': 4.77}
+{'loss': 2.3121, 'grad_norm': 0.9878240823745728, 'learning_rate': 1.1864406779661016e-05, 'epoch': 4.8}
+{'loss': 2.3184, 'grad_norm': 0.5863583087921143, 'learning_rate': 1.0169491525423728e-05, 'epoch': 4.83}
+{'loss': 2.3191, 'grad_norm': 0.4957636594772339, 'learning_rate': 8.47457627118644e-06, 'epoch': 4.86}
+{'loss': 2.3082, 'grad_norm': 0.6025562882423401, 'learning_rate': 6.779661016949152e-06, 'epoch': 4.89}
+{'loss': 2.3244, 'grad_norm': 0.45544004440307617, 'learning_rate': 5.084745762711864e-06, 'epoch': 4.92}
+{'loss': 2.305, 'grad_norm': 0.4354945719242096, 'learning_rate': 3.389830508474576e-06, 'epoch': 4.94}
+{'loss': 2.3195, 'grad_norm': 0.42219191789627075, 'learning_rate': 1.694915254237288e-06, 'epoch': 4.97}
+{'loss': 2.3309, 'grad_norm': 0.6945368051528931, 'learning_rate': 0.0, 'epoch': 5.0}
+  warnings.warn(                                                                                                                           
+{'eval_loss': 2.0039398670196533, 'eval_runtime': 3.6831, 'eval_samples_per_second': 42.899, 'eval_steps_per_second': 5.43, 'epoch': 5.0}
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 1770/1770 [07:00<00:00,  4.21it/s]
+{'train_runtime': 420.5387, 'train_samples_per_second': 16.836, 'train_steps_per_second': 4.209, 'train_loss': 4.013424649211647, 'epoch': 5.0}
+/Users/piyushkumarmishra/llm-finetune-faqbot/.venv/lib/python3.9/site-packages/torch/utils/data/dataloader.py:683: UserWarning: 'pin_memory' argument is set as true but not supported on MPS now, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:02<00:00,  7.35it/s]
+Eval Loss: 2.0039
+Perplexity: 7.42
+/Users/piyushkumarmishra/llm-finetune-faqbot/.venv/lib/python3.9/site-packages/huggingface_hub/file_download.py:943: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(

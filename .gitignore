@@ -1,12 +1,15 @@
 # .gitignore
-output/
-*.bin
-*.pt
-*.ckpt
+.venv/
+__pycache__/
+*.pyc
 *.pkl
-*.h5
+*.pt
+*.bin
+*.dylib
+*.so
+*.log
 *.zip
 *.tar.gz
-__pycache__/
-*.log
-*.ipynb_checkpoints
+output/
+.ipynb_checkpoints/
+.env

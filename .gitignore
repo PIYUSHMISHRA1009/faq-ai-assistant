@@ -1,0 +1,12 @@
+# .gitignore
+output/
+*.bin
+*.pt
+*.ckpt
+*.pkl
+*.h5
+*.zip
+*.tar.gz
+__pycache__/
+*.log
+*.ipynb_checkpoints

@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: faqbot-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.app:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: MODEL_PATH
+        value: output/shrunk-model
+    plan: free
+    autoDeploy: true

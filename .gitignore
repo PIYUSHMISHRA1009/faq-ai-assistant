@@ -1,15 +1,32 @@
-# .gitignore
-.venv/
+# Python artifacts
 __pycache__/
 *.pyc
-*.pkl
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Virtual environments
+.venv/
+
+# Jupyter notebook temp files
+.ipynb_checkpoints/
+
+# Logs and cache (Keep logs you curated, not wandb cache)
+wandb/
+
+# Large or already-hosted model artifacts
+output/checkpoint-*/
+output/finetuned-lora/
+output/combined-flan-t5-small-lora/
+flan-t5-small-lora/
+*.safetensors
 *.pt
 *.bin
-*.dylib
-*.so
-*.log
-*.zip
-*.tar.gz
-output/
-.ipynb_checkpoints/
-.env
+
+# System/IDE files
+.DS_Store
+.vscode/
+.idea/

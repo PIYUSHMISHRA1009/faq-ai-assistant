@@ -33,6 +33,7 @@
       border-radius: 10px;
       max-width: 75%;
       line-height: 1.4;
+      position: relative;
     }
     .user {
       align-self: flex-end;
@@ -66,10 +67,20 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
+      margin-left: 0.3rem;
+    }
+    button#clearBtn {
+      background: #e04e4e;
     }
     button:disabled {
       background: #ccc;
       cursor: not-allowed;
+    }
+    .timestamp {
+      font-size: 0.75rem;
+      color: #555;
+      margin-top: 0.25rem;
+      display: block;
     }
   </style>
 </head>
@@ -82,6 +93,7 @@
   <div id="input-container">
     <input type="text" id="questionInput" placeholder="Ask something..." />
     <button onclick="askQuestion()" id="sendBtn">Send</button>
+    <button onclick="clearChat()" id="clearBtn">Clear</button>
   </div>
 
   <script>
@@ -89,11 +101,20 @@
     const input = document.getElementById('questionInput');
     const sendBtn = document.getElementById('sendBtn');
 
-    function addMessage(text, sender) {
-      const div = document.createElement('div');
-      div.className = `message ${sender}`;
-      div.innerText = text;
-      chat.appendChild(div);
+    let chatHistory = [];
+
+    function formatTime() {
+      const now = new Date();
+      return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function addMessage(sender, text, isTemp = false) {
+      const wrapper = document.createElement('div');
+      wrapper.className = `message ${sender}`;
+      const time = `<span class="timestamp">${formatTime()}</span>`;
+      wrapper.innerHTML = `<strong>${sender === 'user' ? 'You' : 'Bot'}:</strong> ${text}${time}`;
+      if (isTemp) wrapper.dataset.temp = 'true';
+      chat.appendChild(wrapper);
       chat.scrollTop = chat.scrollHeight;
     }
 
@@ -101,30 +122,46 @@
       const question = input.value.trim();
       if (!question) return;
 
-      addMessage(question, 'user');
+      addMessage('user', question);
       input.value = '';
       sendBtn.disabled = true;
-      addMessage('Thinking...', 'bot');
+      addMessage('bot', 'Thinking...', true);
 
       try {
-        // Use relative URL here
         const res = await fetch('/generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question }),
+          body: JSON.stringify({ history: chatHistory, question }),
         });
         if (!res.ok) throw new Error(`API error: ${res.status}`);
         const data = await res.json();
 
-        // Replace "Thinking..." with actual answer
-        const botMsg = chat.querySelector('.message.bot:last-child');
-        botMsg.innerText = data.answer;
+        const tempBotMsg = chat.querySelector('.message.bot[data-temp="true"]');
+        if (tempBotMsg) {
+          tempBotMsg.innerHTML = `<strong>Bot:</strong> ${data.answer}<span class="timestamp">${formatTime()}</span>`;
+          delete tempBotMsg.dataset.temp;
+        }
+
+        chatHistory = data.history;
       } catch (err) {
-        const botMsg = chat.querySelector('.message.bot:last-child');
-        botMsg.innerText = '⚠️ Error contacting API.';
+        const tempBotMsg = chat.querySelector('.message.bot[data-temp="true"]');
+        if (tempBotMsg) tempBotMsg.innerText = '⚠️ Error contacting API.';
         console.error(err);
       } finally {
         sendBtn.disabled = false;
+      }
+    }
+
+    async function clearChat() {
+      chat.innerHTML = "";
+      input.value = "";
+      input.focus();
+      chatHistory = [];
+
+      try {
+        await fetch('/clear', { method: 'POST' });
+      } catch (err) {
+        console.error("Failed to clear backend chat state:", err);
       }
     }
 

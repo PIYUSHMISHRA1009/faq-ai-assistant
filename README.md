@@ -1,13 +1,5 @@
 
 ````markdown
-# FAQBot — Fine-Tuned FAQ Chatbot with LoRA on Flan-T5-small
-
-![Project Banner](./frontend/static/chatbot_banner.png)  
-*(Add an attractive banner or screenshot if you want)*
-
----
-
-## Overview
 
 FAQBot is a custom-built chatbot fine-tuned on a domain-specific FAQ dataset using **LoRA (Low-Rank Adaptation)** tuning applied to the Flan-T5-small transformer model. This approach significantly reduces the number of trainable parameters while maintaining high accuracy, making the model lightweight and efficient for real-time deployment.
 

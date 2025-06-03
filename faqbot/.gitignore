@@ -1,0 +1,15 @@
+# .gitignore
+.venv/
+__pycache__/
+*.pyc
+*.pkl
+*.pt
+*.bin
+*.dylib
+*.so
+*.log
+*.zip
+*.tar.gz
+output/
+.ipynb_checkpoints/
+.env

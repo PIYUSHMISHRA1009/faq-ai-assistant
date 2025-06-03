@@ -1,0 +1,13 @@
+# requirements.txt
+transformers
+torch
+datasets
+peft
+bitsandbytes
+accelerate
+pandas
+scikit-learn
+jupyter
+uvicorn[standard]  # ✅ Add this line
+fastapi            # Required for the API to work
+aiofiles

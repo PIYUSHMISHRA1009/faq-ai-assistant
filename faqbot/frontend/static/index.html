@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQBot – Chat</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #343541;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+    #chat-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .message {
+      margin: 0.5rem 0;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      max-width: 75%;
+      line-height: 1.4;
+      position: relative;
+    }
+    .user {
+      align-self: flex-end;
+      background-color: #d1e7dd;
+      color: #0f5132;
+    }
+    .bot {
+      align-self: flex-start;
+      background-color: #e2e3e5;
+      color: #333;
+    }
+    #input-container {
+      display: flex;
+      padding: 1rem;
+      background: white;
+      border-top: 1px solid #ccc;
+    }
+    #questionInput {
+      flex: 1;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-right: 0.5rem;
+    }
+    button {
+      padding: 0.7rem 1.2rem;
+      background: #19c37d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 0.3rem;
+    }
+    button#clearBtn {
+      background: #e04e4e;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .timestamp {
+      font-size: 0.75rem;
+      color: #555;
+      margin-top: 0.25rem;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>🤖 FAQBot Chat</header>
+
+  <div id="chat-container"></div>
+
+  <div id="input-container">
+    <input type="text" id="questionInput" placeholder="Ask something..." />
+    <button onclick="askQuestion()" id="sendBtn">Send</button>
+    <button onclick="clearChat()" id="clearBtn">Clear</button>
+  </div>
+
+  <script>
+    const chat = document.getElementById('chat-container');
+    const input = document.getElementById('questionInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    let chatHistory = [];
+
+    function formatTime() {
+      const now = new Date();
+      return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function addMessage(sender, text, isTemp = false) {
+      const wrapper = document.createElement('div');
+      wrapper.className = `message ${sender}`;
+      const time = `<span class="timestamp">${formatTime()}</span>`;
+      wrapper.innerHTML = `<strong>${sender === 'user' ? 'You' : 'Bot'}:</strong> ${text}${time}`;
+      if (isTemp) wrapper.dataset.temp = 'true';
+      chat.appendChild(wrapper);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    async function askQuestion() {
+      const question = input.value.trim();
+      if (!question) return;
+
+      addMessage('user', question);
+      input.value = '';
+      sendBtn.disabled = true;
+      addMessage('bot', 'Thinking...', true);
+
+      try {
+        const res = await fetch('/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ history: chatHistory, question }),
+        });
+        if (!res.ok) throw new Error(`API error: ${res.status}`);
+        const data = await res.json();
+
+        const tempBotMsg = chat.querySelector('.message.bot[data-temp="true"]');
+        if (tempBotMsg) {
+          tempBotMsg.innerHTML = `<strong>Bot:</strong> ${data.answer}<span class="timestamp">${formatTime()}</span>`;
+          delete tempBotMsg.dataset.temp;
+        }
+
+        chatHistory = data.history;
+      } catch (err) {
+        const tempBotMsg = chat.querySelector('.message.bot[data-temp="true"]');
+        if (tempBotMsg) tempBotMsg.innerText = '⚠️ Error contacting API.';
+        console.error(err);
+      } finally {
+        sendBtn.disabled = false;
+      }
+    }
+
+    async function clearChat() {
+      chat.innerHTML = "";
+      input.value = "";
+      input.focus();
+      chatHistory = [];
+
+      try {
+        await fetch('/clear', { method: 'POST' });
+      } catch (err) {
+        console.error("Failed to clear backend chat state:", err);
+      }
+    }
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') askQuestion();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Chatbot Analytics Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #filters { margin-bottom: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+    <h1>Chatbot Analytics Dashboard</h1>
+
+    <div id="filters">
+        <input type="date" id="startDate" /> to 
+        <input type="date" id="endDate" />
+        <input type="text" id="keyword" placeholder="Search questions..." />
+        <button onclick="loadData()">Filter</button>
+        <button onclick="resetFilters()">Reset</button>
+    </div>
+
+    <div>
+        <strong>Total Questions:</strong> <span id="totalCount">0</span>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Question</th>
+                <th>Answer</th>
+            </tr>
+        </thead>
+        <tbody id="logTableBody"></tbody>
+    </table>
+
+    <script>
+        async function loadData() {
+            const startDate = document.getElementById("startDate").value;
+            const endDate = document.getElementById("endDate").value;
+            const keyword = document.getElementById("keyword").value.trim();
+
+            let url = `/dashboard/api/logs?`;
+            if (startDate) url += `start=${startDate}&`;
+            if (endDate) url += `end=${endDate}&`;
+            if (keyword) url += `keyword=${encodeURIComponent(keyword)}`;
+
+            const res = await fetch(url);
+            const data = await res.json();
+
+            document.getElementById("totalCount").innerText = data.length;
+
+            const tbody = document.getElementById("logTableBody");
+            tbody.innerHTML = "";
+
+            data.forEach(entry => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${new Date(entry.timestamp).toLocaleString()}</td>
+                    <td>${entry.question}</td>
+                    <td>${entry.answer}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function resetFilters() {
+            document.getElementById("startDate").value = "";
+            document.getElementById("endDate").value = "";
+            document.getElementById("keyword").value = "";
+            loadData();
+        }
+
+        // Load data initially
+        loadData();
+    </script>
+</body>
+</html>

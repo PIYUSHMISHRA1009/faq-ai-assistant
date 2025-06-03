@@ -26,7 +26,5 @@ flan-t5-small-lora/
 *.pt
 *.bin
 
-# System/IDE files
-.DS_Store
-.vscode/
-.idea/
+# Notebook outputs
+notebooks/

@@ -27,11 +27,11 @@ app.mount("/static", StaticFiles(directory=static_dir), name="static")
 async def serve_index():
     return FileResponse(os.path.join(static_dir, "index.html"))
 
-# Load the fine-tuned model
-MODEL_DIR = os.getenv("MODEL_DIR", "./output/shrunk-model")  # or use your original full model
+# Load the fine-tuned model directly from Hugging Face Hub
+MODEL_HF_REPO = "Piyush0001/flan-t5-small-lora"
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR, local_files_only=True)
-model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_DIR, local_files_only=True)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_HF_REPO)
+model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_HF_REPO)
 model.eval()
 
 # Pydantic input model

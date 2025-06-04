@@ -3,11 +3,13 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Install git (required for model downloading from Hugging Face)
-RUN apt-get update && apt-get install -y git
+# Install git (optional, can remove if not needed)
+RUN apt-get update && apt-get install -y git && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Upgrade pip and install dependencies
 COPY requirements.txt .
-
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .

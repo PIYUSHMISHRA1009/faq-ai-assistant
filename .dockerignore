@@ -1,0 +1,36 @@
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Logs
+logs/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Git
+.git/
+.gitignore
+
+# Model checkpoints and large files
+output/
+wandb/
+*.bin
+*.pt
+*.safetensors
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+
+# Docker files
+docker-compose.override.yml

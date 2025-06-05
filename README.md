@@ -91,12 +91,6 @@ When enabled via a simple toggle on the UI, the fallback system:
 - Routes the request to the high-quality `DeepSeek` model via API.
 - Returns an equivalent or enriched response to the user.
 
-### 🌐 Benefits for Users and Recruiters
-- ✅ **Fail-safe:** Avoids blank/failed responses from the main model.
-- ✅ **Low-latency alternative:** Uses OpenRouter’s hosted GPU backend.
-- ✅ **Seamless experience:** Automatically integrates with the UI via toggle.
-- ✅ **Request-limited:** Gracefully handles 50 queries max (configurable).
-
 This hybrid design demonstrates how to combine **custom fine-tuned models** with **external generalist LLMs** for a highly available chatbot — a practical and scalable design appreciated in real-world NLP deployments.
 
 > Try the fallback switch live on [Hugging Face Spaces →](https://huggingface.co/spaces/Piyush0001/faqbot-lora)

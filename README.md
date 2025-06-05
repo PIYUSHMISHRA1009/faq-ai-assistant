@@ -82,6 +82,27 @@
 
 ---
 
+## 📉 Fallback Support via DeepSeek Chat Model
+
+> 💡 To improve robustness in production, this bot includes a **fallback mechanism** using the `deepseek-chat-v3` model hosted via [OpenRouter](https://openrouter.ai/).  
+
+When enabled via a simple toggle on the UI, the fallback system:
+- Detects when the primary Hugging Face model may be slow or unavailable.
+- Routes the request to the high-quality `DeepSeek` model via API.
+- Returns an equivalent or enriched response to the user.
+
+### 🌐 Benefits for Users and Recruiters
+- ✅ **Fail-safe:** Avoids blank/failed responses from the main model.
+- ✅ **Low-latency alternative:** Uses OpenRouter’s hosted GPU backend.
+- ✅ **Seamless experience:** Automatically integrates with the UI via toggle.
+- ✅ **Request-limited:** Gracefully handles 50 queries max (configurable).
+
+This hybrid design demonstrates how to combine **custom fine-tuned models** with **external generalist LLMs** for a highly available chatbot — a practical and scalable design appreciated in real-world NLP deployments.
+
+> Try the fallback switch live on [Hugging Face Spaces →](https://huggingface.co/spaces/Piyush0001/faqbot-lora)
+
+---
+
 ## 💡 Why LoRA?
 
 > ✅ LoRA fine-tuning drastically reduces compute requirements

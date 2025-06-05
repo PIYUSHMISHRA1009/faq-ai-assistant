@@ -1,223 +1,181 @@
-
 ````markdown
+# 🤖 FAQBot | LoRA-Fine-Tuned FLAN-T5 Small
 
-FAQBot is a custom-built chatbot fine-tuned on a domain-specific FAQ dataset using **LoRA (Low-Rank Adaptation)** tuning applied to the Flan-T5-small transformer model. This approach significantly reduces the number of trainable parameters while maintaining high accuracy, making the model lightweight and efficient for real-time deployment.
-
-The project includes the entire pipeline — from data preparation, model fine-tuning, merging and shrinking the model, to serving it via a FastAPI backend and an interactive React-based frontend UI. The solution is containerized for cloud deployment (Render.com), keeping resource constraints in mind.
-
----
-
-## Why This Project?
-
-In many real-world applications, fine-tuning large language models (LLMs) fully is resource-intensive and time-consuming. LoRA offers a parameter-efficient fine-tuning method that drastically reduces computation while retaining task-specific performance.
-
-This project demonstrates:
-
-- How to fine-tune transformer models efficiently using LoRA.
-- Techniques to merge LoRA adapters and shrink models for deployment.
-- Serving ML models with asynchronous APIs.
-- Building interactive frontends communicating with backend ML services.
-- Practical deployment of ML projects under cloud resource constraints.
+> 🚀 **Live Demo:** [Click here to try it on Hugging Face Spaces](https://huggingface.co/spaces/Piyush0001/faqbot-lora)
 
 ---
 
-## What You Will Find Here
-
-- Dataset used for fine-tuning (FAQ dataset).
-- Scripts and notebooks for data preprocessing.
-- Training scripts implementing LoRA fine-tuning.
-- Post-training utilities to merge and compress models.
-- FastAPI backend serving the model for inference.
-- Responsive frontend UI for chatbot interaction.
-- Docker and Render deployment configurations.
-- Detailed documentation and examples.
+> ### 📌 Project Overview
+> FAQBot is a lightweight chatbot fine-tuned on a domain-specific FAQ dataset using **LoRA (Low-Rank Adaptation)** on `flan-t5-small`.  
+> It's designed to be efficient, responsive, and deployable under cloud memory constraints — ideal for real-world inference at scale.
 
 ---
 
-## Phase-wise Detailed Journey & Learnings
-
-### Phase 1: Data Preparation & Exploration
-
-- **Objective:** Understand and preprocess the FAQ dataset.
-- **Activities:**
-  - Loaded and explored JSON structured FAQ pairs.
-  - Cleaned and formatted data suitable for model input.
-  - Split data into training and validation sets.
-- **Learnings:**
-  - Data pipeline design for NLP.
-  - Importance of clean, well-structured datasets for fine-tuning.
-  - Using Jupyter notebooks for rapid prototyping.
+> ### ✅ Key Highlights
+> - Fine-tuned using Hugging Face 🤗 Transformers + PEFT + LoRA  
+> - Model merged and **shrunk** for real-time inference  
+> - FastAPI backend with async inference API  
+> - Gradio UI frontend for interactive experience  
+> - Fully containerized (Docker)  
+> - Deployed on Hugging Face Spaces (100% free & fast!)
 
 ---
 
-### Phase 2: Model Fine-Tuning with LoRA
+## 📖 What’s Inside?
 
-- **Objective:** Fine-tune the Flan-T5-small model on FAQ data efficiently.
-- **Activities:**
-  - Set up Hugging Face Transformers and PEFT (Parameter-Efficient Fine-Tuning).
-  - Integrated LoRA adapters to limit trainable parameters.
-  - Configured training scripts (`src/finetune_llm.py`) with hyperparameter tuning.
-  - Tracked experiments with Weights & Biases (W&B).
-- **Learnings:**
-  - Concepts and benefits of LoRA in NLP.
-  - Transformer architecture and tokenization specifics.
-  - Hands-on training loop customization and logging.
-
----
-
-### Phase 3: Model Merging & Shrinking for Deployment
-
-- **Objective:** Prepare the fine-tuned model for efficient deployment.
-- **Activities:**
-  - Merged LoRA adapter weights into the base model using `merge_lora.py`.
-  - Applied model shrinking (`shrink_model.py`) to reduce model size and memory footprint.
-  - Saved and organized checkpoints and final model artifacts.
-- **Learnings:**
-  - Model checkpoint management.
-  - Techniques to optimize model size without losing accuracy.
-  - Handling large model files and serialization formats.
+```text
+├── data/                       # FAQ dataset
+├── output/                     # Merged, shrunk model
+├── src/
+│   ├── app.py                  # FastAPI or Gradio backend
+│   ├── finetune_llm.py         # LoRA training script
+│   ├── merge_lora.py           # Merge adapter weights
+│   └── shrink_model.py         # Shrink model for deployment
+├── frontend/static/            # HTML/CSS/JS UI (if used)
+├── Dockerfile                  # Backend container
+├── requirements.txt            # Dependencies
+├── README.md                   # This file
+└── render.yaml                 # Optional Render deployment config
+````
 
 ---
 
-### Phase 4: Backend API Development
+## 📅 Phase-wise Project Journey
 
-- **Objective:** Build a scalable and efficient backend API to serve the model.
-- **Activities:**
-  - Developed FastAPI server (`src/app.py`) with async endpoints.
-  - Loaded the merged, shrunk model and tokenizer.
-  - Implemented request/response handling with concurrency support.
-  - Added logging and error handling.
-- **Learnings:**
-  - Building asynchronous APIs in Python.
-  - Efficient serving of transformer models.
-  - Structuring ML services for real-time interaction.
+> ### 🧹 Phase 1: Data Preparation
+>
+> * Cleaned and structured the FAQ dataset.
+> * Converted to Q-A pairs in seq2seq format.
+> * Split into train/validation using scripts & notebooks.
 
----
+> ### 🧠 Phase 2: Fine-Tuning with LoRA
+>
+> * Used `flan-t5-small` base model.
+> * Applied LoRA adapters via 🤗 PEFT.
+> * Efficient fine-tuning with reduced trainable parameters.
+> * Tracked experiments using Weights & Biases.
 
-### Phase 5: Frontend Development
+> ### 🧬 Phase 3: Model Merging & Shrinking
+>
+> * Merged LoRA adapters into the base model.
+> * Shrunk model size from \~950MB to \~300MB.
+> * Saved and tested model for CPU inference.
 
-- **Objective:** Create a user-friendly interface for chatbot interaction.
-- **Activities:**
-  - Built a responsive chat UI in plain HTML, CSS, and JavaScript.
-  - Integrated frontend with backend API using fetch/XHR calls.
-  - Managed chat history and UI state.
-  - Tested for usability and responsiveness.
-- **Learnings:**
-  - Frontend-backend integration for ML apps.
-  - UX considerations in chatbot design.
-  - Basic JS DOM manipulation and asynchronous networking.
+> ### ⚙️ Phase 4: Backend API (FastAPI)
+>
+> * Developed async POST `/generate` endpoint.
+> * Loaded tokenizer/model from Hugging Face.
+> * Handled request/response formats.
 
----
+> ### 💬 Phase 5: Frontend UI (Gradio or Vanilla JS)
+>
+> * Created interactive UI to test chatbot.
+> * Integrated with FastAPI or Gradio backend.
+> * UI deployed via Hugging Face Spaces.
 
-### Phase 6: Containerization & Deployment
-
-- **Objective:** Deploy the FAQBot application on Render with resource limits.
-- **Activities:**
-  - Created Dockerfile to containerize backend and frontend.
-  - Wrote `render.yaml` config for deployment automation.
-  - Set up Git LFS to manage large model files.
-  - Deployed to Render.com’s free tier considering storage and memory limits.
-- **Learnings:**
-  - Containerization with Docker for ML apps.
-  - Managing large files in Git using LFS.
-  - Deploying ML services on cloud platforms under constraints.
-  - Troubleshooting network and resource issues in deployment.
+> ### 📦 Phase 6: Deployment
+>
+> * Created Dockerfile for containerization.
+> * Added `render.yaml` for optional Render deploy.
+> * Final deployment done via Hugging Face Spaces (Gradio).
+> * No GPU or heavy RAM required!
 
 ---
 
-## Installation & Usage
+## 💡 Why LoRA?
 
-### Clone & Setup
+> ✅ LoRA fine-tuning drastically reduces compute requirements
+> ✅ Retains model performance on small data
+> ✅ Ideal for edge/cloud deployments
+
+---
+
+## 🚀 Run Locally
+
+### 🛠️ Setup
 
 ```bash
-git clone https://github.com/yourusername/faqbot.git
+git clone https://github.com/Piyush0001/faqbot.git
 cd faqbot
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-````
+```
 
-### Run Locally
+### ▶️ Launch
 
 ```bash
 uvicorn src.app:app --reload
 ```
 
-Open `frontend/static/index.html` in a browser to chat with the bot.
-
-### Deploy to Render
-
-* Push repo with Git LFS enabled.
-* Connect GitHub repo to Render.com.
-* Use `render.yaml` for service configuration.
-* Deploy and access live app via Render URL.
+Open `http://127.0.0.1:8000` in your browser
+Or run `app.py` with Gradio interface for immediate UI testing.
 
 ---
 
-## Project Structure
+## 📦 Docker Support
 
-```
-├── data/                       # FAQ dataset
-├── output/                     # Model checkpoints and artifacts
-├── src/                        # Source code: training, merging, serving
-├── frontend/static/            # Frontend chat UI
-├── Dockerfile                  # Container image definition
-├── render.yaml                 # Render deployment config
-├── requirements.txt            # Python dependencies
-├── shrink_model.py             # Model size optimization utility
-├── README.md                   # This file
-└── notebooks/                  # Jupyter notebooks for data prep
+```bash
+# Build image
+docker build -t faqbot .
+
+# Run container
+docker run -p 8000:8000 faqbot
 ```
 
 ---
 
-## Technologies Used
+## 🌍 Technologies Used
 
-* **Python 3.9+**
-* **FastAPI** for backend API
-* **Hugging Face Transformers & PEFT** for LoRA fine-tuning
-* **Weights & Biases** for experiment tracking
-* **Git LFS** for large file management
-* **Docker** for containerization
-* **Render.com** for deployment
-* **Vanilla JavaScript & HTML/CSS** for frontend UI
-
----
-
-## Challenges & How I Overcame Them
-
-* Managing large model files on GitHub using Git LFS.
-* Reducing model size to fit cloud deployment limits.
-* Handling asynchronous request processing in FastAPI.
-* Debugging deployment errors with limited cloud resources.
-* Ensuring smooth frontend-backend communication.
+| Tool/Tech                 | Purpose                 |
+| ------------------------- | ----------------------- |
+| Python 3.10               | Core language           |
+| Hugging Face Transformers | Model & tokenizer       |
+| PEFT + LoRA               | Lightweight fine-tuning |
+| FastAPI / Gradio          | API + Web interface     |
+| Docker                    | Deployment and testing  |
+| Git LFS                   | Managing large files    |
+| Hugging Face Spaces       | Final deployment        |
 
 ---
 
-## Future Improvements
+## 🧪 Challenges Overcome
 
-* Add user authentication and session management.
-* Improve chatbot conversational context handling.
-* Integrate caching for faster responses.
-* Implement multi-turn dialogue capability.
-* Upgrade frontend to React for better UX and maintainability.
-
----
-
-## Contact & Contributions
-
-I’m open to feedback, questions, and collaboration!
-Reach out at: mishra.piyush827@gmail.com
+> 🧠 Reduced model memory from >900MB to <350MB
+> 🔧 Debugged `render.com` crashes due to RAM overuse
+> ⚡ Migrated from FastAPI to Gradio for lighter cloud deployment
+> 🚛 Used Git LFS for handling large model files cleanly
 
 ---
 
-## License
+## 🌱 Future Improvements
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+* [ ] Add conversational context memory (multi-turn chat)
+* [ ] Improve UI with React or Next.js
+* [ ] Integrate Pinecone or FAISS for RAG-based QA
+* [ ] Add support for file uploads (PDF → FAQ)
 
 ---
 
-Thank you for checking out FAQBot!
-Looking forward to your feedback and contributions.
-# faq-ai-assistant
-# faq-ai-assistant
+## 🤝 Recruiter Notes
+
+> ✅ Hands-on NLP project using LoRA
+> ✅ Fully built, tested, and deployed end-to-end
+> ✅ Covers fine-tuning, optimization, API dev, and cloud deploy
+> ✅ Strong understanding of model serving and size trade-offs
+> ✅ Open to collaboration or extensions for new domains!
+
+---
+
+## 📬 Contact Me
+
+**👨‍💻 Piyush Kumar Mishra**
+📧 [mishra.piyush827@gmail.com](mailto:mishra.piyush827@gmail.com)
+🔗 [LinkedIn](https://linkedin.com/in/piyushkmishra)
+
+---
+
+Thank you for visiting the FAQBot repository.
+Feel free to ⭐ the repo or [try the chatbot live](https://huggingface.co/spaces/Piyush0001/faqbot-lora)!
+
+````
